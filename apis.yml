@@ -5,11 +5,11 @@ apis:
   - aid: fake-store-api:fake-store-api
     name: Fake Store API
     tags:
-      - Fake Data
-      - Synthetic Data
-      - Products
       - Customers
+      - Fake Data
       - Orders
+      - Products
+      - Synthetic Data
     humanURL: https://fakestoreapi.com/
     properties:
       - url: https://fakestoreapi.com/
@@ -22,11 +22,11 @@ apis:
       such as product details, customer information, and order history.
 name: Fake Store API
 tags:
-  - Fake Data
-  - Synthetic Data
-  - Products
   - Customers
+  - Fake Data
   - Orders
+  - Products
+  - Synthetic Data
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
