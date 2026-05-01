@@ -1,0 +1,597 @@
+openapi: 3.0.3
+info:
+  title: Fake Store API
+  description: >-
+    Fake Store API exposes a sample REST API for e-commerce data including
+    products, carts, users, and authentication. It is intended for prototyping,
+    teaching, and integration testing — write operations return fabricated
+    responses and do not persist data on the server.
+  version: 1.0.0
+  contact:
+    name: Fake Store API
+    url: https://fakestoreapi.com/
+  license:
+    name: MIT
+servers:
+  - url: https://fakestoreapi.com
+    description: Production
+tags:
+  - name: Products
+    description: Product catalog operations.
+  - name: Carts
+    description: Shopping cart operations.
+  - name: Users
+    description: User account operations.
+  - name: Auth
+    description: Authentication operations.
+paths:
+  /products:
+    get:
+      tags: [Products]
+      summary: List products
+      operationId: listProducts
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Array of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+    post:
+      tags: [Products]
+      summary: Create a product
+      operationId: createProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '200':
+          description: Created product (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /products/{id}:
+    parameters:
+      - $ref: '#/components/parameters/ProductId'
+    get:
+      tags: [Products]
+      summary: Get a product
+      operationId: getProduct
+      responses:
+        '200':
+          description: Product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    put:
+      tags: [Products]
+      summary: Replace a product
+      operationId: replaceProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '200':
+          description: Updated product (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    patch:
+      tags: [Products]
+      summary: Partially update a product
+      operationId: updateProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductInput'
+      responses:
+        '200':
+          description: Updated product (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+    delete:
+      tags: [Products]
+      summary: Delete a product
+      operationId: deleteProduct
+      responses:
+        '200':
+          description: Deleted product (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+  /products/categories:
+    get:
+      tags: [Products]
+      summary: List product categories
+      operationId: listCategories
+      responses:
+        '200':
+          description: Array of category names
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /products/category/{category}:
+    parameters:
+      - in: path
+        name: category
+        required: true
+        schema:
+          type: string
+        description: Category name
+    get:
+      tags: [Products]
+      summary: List products in a category
+      operationId: listProductsByCategory
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Array of products in the category
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+  /carts:
+    get:
+      tags: [Carts]
+      summary: List carts
+      operationId: listCarts
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Sort'
+        - in: query
+          name: startdate
+          schema:
+            type: string
+            format: date
+          description: Start date for filtering carts
+        - in: query
+          name: enddate
+          schema:
+            type: string
+            format: date
+          description: End date for filtering carts
+      responses:
+        '200':
+          description: Array of carts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cart'
+    post:
+      tags: [Carts]
+      summary: Create a cart
+      operationId: createCart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartInput'
+      responses:
+        '200':
+          description: Created cart (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+  /carts/{id}:
+    parameters:
+      - $ref: '#/components/parameters/CartId'
+    get:
+      tags: [Carts]
+      summary: Get a cart
+      operationId: getCart
+      responses:
+        '200':
+          description: Cart
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+    put:
+      tags: [Carts]
+      summary: Replace a cart
+      operationId: replaceCart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartInput'
+      responses:
+        '200':
+          description: Updated cart (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+    patch:
+      tags: [Carts]
+      summary: Partially update a cart
+      operationId: updateCart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartInput'
+      responses:
+        '200':
+          description: Updated cart (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+    delete:
+      tags: [Carts]
+      summary: Delete a cart
+      operationId: deleteCart
+      responses:
+        '200':
+          description: Deleted cart (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+  /carts/user/{userId}:
+    parameters:
+      - in: path
+        name: userId
+        required: true
+        schema:
+          type: integer
+        description: User ID
+    get:
+      tags: [Carts]
+      summary: List carts for a user
+      operationId: listCartsByUser
+      responses:
+        '200':
+          description: Array of carts for the user
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cart'
+  /users:
+    get:
+      tags: [Users]
+      summary: List users
+      operationId: listUsers
+      parameters:
+        - $ref: '#/components/parameters/Limit'
+        - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Array of users
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      tags: [Users]
+      summary: Create a user
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '200':
+          description: Created user (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /users/{id}:
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    get:
+      tags: [Users]
+      summary: Get a user
+      operationId: getUser
+      responses:
+        '200':
+          description: User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    put:
+      tags: [Users]
+      summary: Replace a user
+      operationId: replaceUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '200':
+          description: Updated user (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    patch:
+      tags: [Users]
+      summary: Partially update a user
+      operationId: updateUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserInput'
+      responses:
+        '200':
+          description: Updated user (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    delete:
+      tags: [Users]
+      summary: Delete a user
+      operationId: deleteUser
+      responses:
+        '200':
+          description: Deleted user (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Login
+      description: Returns a JSON Web Token for the supplied credentials.
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [username, password]
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+        '401':
+          description: Invalid credentials
+components:
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+      description: Maximum number of results to return
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: string
+        enum: [asc, desc]
+      description: Sort order for results
+    ProductId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+      description: Product ID
+    CartId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+      description: Cart ID
+    UserId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+      description: User ID
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        price:
+          type: number
+        category:
+          type: string
+        description:
+          type: string
+        image:
+          type: string
+          format: uri
+        rating:
+          type: object
+          properties:
+            rate:
+              type: number
+            count:
+              type: integer
+    ProductInput:
+      type: object
+      required: [title, price, category, description, image]
+      properties:
+        title:
+          type: string
+        price:
+          type: number
+        category:
+          type: string
+        description:
+          type: string
+        image:
+          type: string
+          format: uri
+    Cart:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        date:
+          type: string
+          format: date
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: integer
+              quantity:
+                type: integer
+    CartInput:
+      type: object
+      required: [userId, date, products]
+      properties:
+        userId:
+          type: integer
+        date:
+          type: string
+          format: date
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: integer
+              quantity:
+                type: integer
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+          format: email
+        username:
+          type: string
+        password:
+          type: string
+        name:
+          type: object
+          properties:
+            firstname:
+              type: string
+            lastname:
+              type: string
+        address:
+          type: object
+          properties:
+            city:
+              type: string
+            street:
+              type: string
+            number:
+              type: integer
+            zipcode:
+              type: string
+            geolocation:
+              type: object
+              properties:
+                lat:
+                  type: string
+                long:
+                  type: string
+        phone:
+          type: string
+    UserInput:
+      type: object
+      required: [email, username, password]
+      properties:
+        email:
+          type: string
+          format: email
+        username:
+          type: string
+        password:
+          type: string
+        name:
+          type: object
+          properties:
+            firstname:
+              type: string
+            lastname:
+              type: string
+        address:
+          type: object
+          properties:
+            city:
+              type: string
+            street:
+              type: string
+            number:
+              type: integer
+            zipcode:
+              type: string
+            geolocation:
+              type: object
+              properties:
+                lat:
+                  type: string
+                long:
+                  type: string
+        phone:
+          type: string
