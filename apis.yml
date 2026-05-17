@@ -50,7 +50,7 @@ common:
     url: https://fakestoreapi.com/
   - type: Documentation
     url: https://fakestoreapi.com/docs
-  - type: GitHub Repository
+  - type: GitHubRepository
     url: https://github.com/keikaavousi/fake-store-api
 maintainers:
   - FN: Kin Lane
