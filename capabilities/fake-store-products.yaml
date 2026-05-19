@@ -1,0 +1,293 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Fake Store API — Products
+  description: 'Fake Store API — Products. 8 operations. Lead operation: List products. Self-contained Naftiko capability
+    covering one Fake Store Api business surface.'
+  tags:
+  - Fake Store Api
+  - Products
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    FAKE_STORE_API_API_KEY: FAKE_STORE_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: fake-store-products
+    baseUri: https://fakestoreapi.com
+    description: Fake Store API — Products business capability. Self-contained, no shared references.
+    resources:
+    - name: products
+      path: /products
+      operations:
+      - name: listproducts
+        method: GET
+        description: List products
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createproduct
+        method: POST
+        description: Create a product
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: products-categories
+      path: /products/categories
+      operations:
+      - name: listcategories
+        method: GET
+        description: List product categories
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: products-category-category
+      path: /products/category/{category}
+      operations:
+      - name: listproductsbycategory
+        method: GET
+        description: List products in a category
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: products-id
+      path: /products/{id}
+      operations:
+      - name: getproduct
+        method: GET
+        description: Get a product
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: replaceproduct
+        method: PUT
+        description: Replace a product
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: updateproduct
+        method: PATCH
+        description: Partially update a product
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deleteproduct
+        method: DELETE
+        description: Delete a product
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: fake-store-products-rest
+    port: 8080
+    description: REST adapter for Fake Store API — Products. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/products
+      name: products
+      description: REST surface for products.
+      operations:
+      - method: GET
+        name: listproducts
+        description: List products
+        call: fake-store-products.listproducts
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createproduct
+        description: Create a product
+        call: fake-store-products.createproduct
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/products/categories
+      name: products-categories
+      description: REST surface for products-categories.
+      operations:
+      - method: GET
+        name: listcategories
+        description: List product categories
+        call: fake-store-products.listcategories
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/products/category/{category}
+      name: products-category-category
+      description: REST surface for products-category-category.
+      operations:
+      - method: GET
+        name: listproductsbycategory
+        description: List products in a category
+        call: fake-store-products.listproductsbycategory
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/products/{id}
+      name: products-id
+      description: REST surface for products-id.
+      operations:
+      - method: GET
+        name: getproduct
+        description: Get a product
+        call: fake-store-products.getproduct
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: replaceproduct
+        description: Replace a product
+        call: fake-store-products.replaceproduct
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateproduct
+        description: Partially update a product
+        call: fake-store-products.updateproduct
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deleteproduct
+        description: Delete a product
+        call: fake-store-products.deleteproduct
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: fake-store-products-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Fake Store API — Products. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-products
+      description: List products
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fake-store-products.listproducts
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-product
+      description: Create a product
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: fake-store-products.createproduct
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-product-categories
+      description: List product categories
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fake-store-products.listcategories
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: list-products-category
+      description: List products in a category
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fake-store-products.listproductsbycategory
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-product
+      description: Get a product
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: fake-store-products.getproduct
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: replace-product
+      description: Replace a product
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fake-store-products.replaceproduct
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: partially-update-product
+      description: Partially update a product
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: fake-store-products.updateproduct
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-product
+      description: Delete a product
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: fake-store-products.deleteproduct
+      outputParameters:
+      - type: object
+        mapping: $.
