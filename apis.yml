@@ -42,6 +42,8 @@ apis:
       - type: OpenAPI
         url: openapi/fake-store-api-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/fake-store-api-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/fake-store-api
   - type: Website
