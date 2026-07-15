@@ -42,6 +42,8 @@ apis:
       - type: OpenAPI
         url: openapi/fake-store-api-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/fake-store-api-agentic-access.yml
   - type: DomainSecurity
     url: security/fake-store-api-domain-security.yml
   - type: LinkedIn
