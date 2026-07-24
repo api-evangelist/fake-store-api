@@ -1,0 +1,50 @@
+openapi: 3.0.3
+info:
+  title: Fake Store Auth API
+  description: Fake Store API exposes a sample REST API for e-commerce data including products, carts, users, and authentication. It is intended for prototyping, teaching, and integration testing — write operations return fabricated responses and do not persist data on the server.
+  version: 1.0.0
+  contact:
+    name: Fake Store API
+    url: https://fakestoreapi.com/
+  license:
+    name: MIT
+servers:
+- url: https://fakestoreapi.com
+  description: Production
+tags:
+- name: Auth
+  description: Authentication operations.
+paths:
+  /auth/login:
+    post:
+      tags:
+      - Auth
+      summary: Login
+      description: Returns a JSON Web Token for the supplied credentials.
+      operationId: login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - username
+              - password
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+        '401':
+          description: Invalid credentials

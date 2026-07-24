@@ -1,0 +1,216 @@
+openapi: 3.0.3
+info:
+  title: Fake Store Auth Carts API
+  description: Fake Store API exposes a sample REST API for e-commerce data including products, carts, users, and authentication. It is intended for prototyping, teaching, and integration testing — write operations return fabricated responses and do not persist data on the server.
+  version: 1.0.0
+  contact:
+    name: Fake Store API
+    url: https://fakestoreapi.com/
+  license:
+    name: MIT
+servers:
+- url: https://fakestoreapi.com
+  description: Production
+tags:
+- name: Carts
+  description: Shopping cart operations.
+paths:
+  /carts:
+    get:
+      tags:
+      - Carts
+      summary: List carts
+      operationId: listCarts
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Sort'
+      - in: query
+        name: startdate
+        schema:
+          type: string
+          format: date
+        description: Start date for filtering carts
+      - in: query
+        name: enddate
+        schema:
+          type: string
+          format: date
+        description: End date for filtering carts
+      responses:
+        '200':
+          description: Array of carts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cart'
+    post:
+      tags:
+      - Carts
+      summary: Create a cart
+      operationId: createCart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartInput'
+      responses:
+        '200':
+          description: Created cart (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+  /carts/{id}:
+    parameters:
+    - $ref: '#/components/parameters/CartId'
+    get:
+      tags:
+      - Carts
+      summary: Get a cart
+      operationId: getCart
+      responses:
+        '200':
+          description: Cart
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+    put:
+      tags:
+      - Carts
+      summary: Replace a cart
+      operationId: replaceCart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartInput'
+      responses:
+        '200':
+          description: Updated cart (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+    patch:
+      tags:
+      - Carts
+      summary: Partially update a cart
+      operationId: updateCart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartInput'
+      responses:
+        '200':
+          description: Updated cart (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+    delete:
+      tags:
+      - Carts
+      summary: Delete a cart
+      operationId: deleteCart
+      responses:
+        '200':
+          description: Deleted cart (fabricated)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+  /carts/user/{userId}:
+    parameters:
+    - in: path
+      name: userId
+      required: true
+      schema:
+        type: integer
+      description: User ID
+    get:
+      tags:
+      - Carts
+      summary: List carts for a user
+      operationId: listCartsByUser
+      responses:
+        '200':
+          description: Array of carts for the user
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Cart'
+components:
+  schemas:
+    CartInput:
+      type: object
+      required:
+      - userId
+      - date
+      - products
+      properties:
+        userId:
+          type: integer
+        date:
+          type: string
+          format: date
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: integer
+              quantity:
+                type: integer
+    Cart:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        date:
+          type: string
+          format: date
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: integer
+              quantity:
+                type: integer
+  parameters:
+    CartId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+      description: Cart ID
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+      description: Sort order for results
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+      description: Maximum number of results to return
