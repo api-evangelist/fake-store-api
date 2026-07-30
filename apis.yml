@@ -6,7 +6,19 @@ description: >-
   Fake Store API provides a simple and easy-to-use interface for retrieving information such as product details,
   customer information, and order history.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/fake-store-api.png
 tags:
   - Customers
   - Fake Data
@@ -20,27 +32,62 @@ position: Consumer
 access: 3rd-Party
 specificationVersion: '0.19'
 apis:
-  - aid: fake-store-api:fake-store-api
-    name: Fake Store API
-    description: >-
-      Public REST API for prototyping and teaching e-commerce integrations. Exposes products, carts, users, and
-      authentication endpoints. Write operations return fabricated responses without persisting data on the server,
-      making it safe for demos and integration testing.
-    humanURL: https://fakestoreapi.com/
-    baseURL: https://fakestoreapi.com
-    tags:
-      - Customers
-      - Fake Data
-      - Orders
-      - Products
-      - Synthetic Data
-    properties:
-      - type: Documentation
-        url: https://fakestoreapi.com/docs
-      - type: Website
-        url: https://fakestoreapi.com/
-      - type: OpenAPI
-        url: openapi/fake-store-api-openapi.yml
+- aid: fake-store-api:fake-store-api-auth-api
+  name: Fake Store API Auth API
+  description: Authentication operations.
+  humanURL: https://fakestoreapi.com/
+  baseURL: https://fakestoreapi.com
+  tags:
+  - Auth
+  properties:
+  - type: OpenAPI
+    url: openapi/fake-store-api-auth-api-openapi.yml
+  - type: Documentation
+    url: https://fakestoreapi.com/docs
+  - type: Website
+    url: https://fakestoreapi.com/
+- aid: fake-store-api:fake-store-api-carts-api
+  name: Fake Store API Carts API
+  description: Shopping cart operations.
+  humanURL: https://fakestoreapi.com/
+  baseURL: https://fakestoreapi.com
+  tags:
+  - Carts
+  properties:
+  - type: OpenAPI
+    url: openapi/fake-store-api-carts-api-openapi.yml
+  - type: Documentation
+    url: https://fakestoreapi.com/docs
+  - type: Website
+    url: https://fakestoreapi.com/
+- aid: fake-store-api:fake-store-api-products-api
+  name: Fake Store API Products API
+  description: Product catalog operations.
+  humanURL: https://fakestoreapi.com/
+  baseURL: https://fakestoreapi.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/fake-store-api-products-api-openapi.yml
+  - type: Documentation
+    url: https://fakestoreapi.com/docs
+  - type: Website
+    url: https://fakestoreapi.com/
+- aid: fake-store-api:fake-store-api-users-api
+  name: Fake Store API Users API
+  description: User account operations.
+  humanURL: https://fakestoreapi.com/
+  baseURL: https://fakestoreapi.com
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/fake-store-api-users-api-openapi.yml
+  - type: Documentation
+    url: https://fakestoreapi.com/docs
+  - type: Website
+    url: https://fakestoreapi.com/
 common:
   - type: AgenticAccess
     url: agentic-access/fake-store-api-agentic-access.yml
