@@ -1,0 +1,20 @@
+{
+  "provider": "fake-store-api",
+  "sources": [
+    "fake-store-api-auth-api-openapi.yml",
+    "fake-store-api-carts-api-openapi.yml",
+    "fake-store-api-products-api-openapi.yml",
+    "fake-store-api-users-api-openapi.yml"
+  ],
+  "outputs": [
+    "fake-store-api-auth-api-openapi.yml",
+    "fake-store-api-carts-api-openapi.yml",
+    "fake-store-api-products-api-openapi.yml",
+    "fake-store-api-users-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
