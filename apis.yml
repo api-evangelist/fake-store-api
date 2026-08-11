@@ -89,6 +89,11 @@ apis:
   - type: Website
     url: https://fakestoreapi.com/
 common:
+  - type: IssueTracker
+    url: https://github.com/keikaavousi/fake-store-api/issues
+  - type: License
+    name: MIT
+    url: https://github.com/keikaavousi/fake-store-api/blob/master/LICENSE
   - type: AgenticAccess
     url: agentic-access/fake-store-api-agentic-access.yml
   - type: DomainSecurity
