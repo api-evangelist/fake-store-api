@@ -30,7 +30,7 @@ created: '2025-02-24'
 modified: '2026-05-19'
 position: Consumer
 access: 3rd-Party
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: fake-store-api:fake-store-api-auth-api
   name: Fake Store API Auth API
