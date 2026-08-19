@@ -1,0 +1,769 @@
+{
+  "item": [
+    {
+      "id": "a28799ee-1ae3-4d07-9711-c136d36f2ee1",
+      "name": "Products",
+      "description": {
+        "content": "Product catalog operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "52e05eeb-c960-4440-9f0b-31dd98fcb641",
+          "name": "List products",
+          "request": {
+            "name": "List products",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort order for results"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b0d5924c-1b06-4f01-990b-db4301c78ead",
+              "name": "Array of products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1866,\n    \"title\": \"string\",\n    \"price\": 2726.458996427172,\n    \"category\": \"string\",\n    \"description\": \"string\",\n    \"image\": \"https://ZxxaCsdEPlFzMRFbYbuOQvU.xgmKGPJVkx6ky5,eUeRRT\",\n    \"rating\": {\n      \"rate\": 2857.2220886356768,\n      \"count\": 8691\n    }\n  },\n  {\n    \"id\": 496,\n    \"title\": \"string\",\n    \"price\": 3640.707261823689,\n    \"category\": \"string\",\n    \"description\": \"string\",\n    \"image\": \"https://HDHDstMQhq.dhw89uHJkYlQgA7KMNwGc5-cZ02kHRp2no6mCfqenJWqbAsRvQNYiPyO+8NP\",\n    \"rating\": {\n      \"rate\": 1595.1626966045508,\n      \"count\": 9136\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a27dd663-cef6-4943-8b75-2b4ecbfe3ff1",
+          "name": "Create a product",
+          "request": {
+            "name": "Create a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"price\": \"<number>\",\n  \"category\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0396171e-ca38-474f-a073-09747824af0c",
+              "name": "Created product (fabricated)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"price\": \"<number>\",\n  \"category\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2652,\n  \"title\": \"string\",\n  \"price\": 1705.5398798169208,\n  \"category\": \"string\",\n  \"description\": \"string\",\n  \"image\": \"https://OIAD.hsIGw3RUlgP.UdBfN3UwpXi.-eHEbslBnMTyB6lifcy2D8ZrufBoyqqe2rFdy6x\",\n  \"rating\": {\n    \"rate\": 8475.757585326839,\n    \"count\": 1565\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b72e8db4-76d1-4c24-b1d9-7d9c79974af9",
+          "name": "Get a product",
+          "request": {
+            "name": "Get a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Product ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce17a1b9-2958-46ee-b177-469e8b4697b6",
+              "name": "Product",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2652,\n  \"title\": \"string\",\n  \"price\": 1705.5398798169208,\n  \"category\": \"string\",\n  \"description\": \"string\",\n  \"image\": \"https://OIAD.hsIGw3RUlgP.UdBfN3UwpXi.-eHEbslBnMTyB6lifcy2D8ZrufBoyqqe2rFdy6x\",\n  \"rating\": {\n    \"rate\": 8475.757585326839,\n    \"count\": 1565\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7d3a50b-081f-43ff-b465-8c42530ecc23",
+          "name": "Replace a product",
+          "request": {
+            "name": "Replace a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Product ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"price\": \"<number>\",\n  \"category\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4f30afb7-5143-4dbb-9331-caa41cceeb92",
+              "name": "Updated product (fabricated)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"price\": \"<number>\",\n  \"category\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2652,\n  \"title\": \"string\",\n  \"price\": 1705.5398798169208,\n  \"category\": \"string\",\n  \"description\": \"string\",\n  \"image\": \"https://OIAD.hsIGw3RUlgP.UdBfN3UwpXi.-eHEbslBnMTyB6lifcy2D8ZrufBoyqqe2rFdy6x\",\n  \"rating\": {\n    \"rate\": 8475.757585326839,\n    \"count\": 1565\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cae6ac7b-36a9-4f79-b358-20cd0f1660c2",
+          "name": "Partially update a product",
+          "request": {
+            "name": "Partially update a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Product ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"price\": \"<number>\",\n  \"category\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<uri>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d881a75c-13aa-4451-8679-5e639e735beb",
+              "name": "Updated product (fabricated)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"<string>\",\n  \"price\": \"<number>\",\n  \"category\": \"<string>\",\n  \"description\": \"<string>\",\n  \"image\": \"<uri>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2652,\n  \"title\": \"string\",\n  \"price\": 1705.5398798169208,\n  \"category\": \"string\",\n  \"description\": \"string\",\n  \"image\": \"https://OIAD.hsIGw3RUlgP.UdBfN3UwpXi.-eHEbslBnMTyB6lifcy2D8ZrufBoyqqe2rFdy6x\",\n  \"rating\": {\n    \"rate\": 8475.757585326839,\n    \"count\": 1565\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb88c116-b4ea-444d-8011-2e76be1ad127",
+          "name": "Delete a product",
+          "request": {
+            "name": "Delete a product",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Product ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c84e7d7b-3e28-459c-bd08-911cf134f0be",
+              "name": "Deleted product (fabricated)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Product ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 2652,\n  \"title\": \"string\",\n  \"price\": 1705.5398798169208,\n  \"category\": \"string\",\n  \"description\": \"string\",\n  \"image\": \"https://OIAD.hsIGw3RUlgP.UdBfN3UwpXi.-eHEbslBnMTyB6lifcy2D8ZrufBoyqqe2rFdy6x\",\n  \"rating\": {\n    \"rate\": 8475.757585326839,\n    \"count\": 1565\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76dc8d35-89d0-41bb-96a7-ec93cb67155e",
+          "name": "List product categories",
+          "request": {
+            "name": "List product categories",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9dd423e9-1a65-4c3f-99cf-5c56859bd503",
+              "name": "Array of category names",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3689a90b-7f49-4280-9481-93d978388413",
+          "name": "List products in a category",
+          "request": {
+            "name": "List products in a category",
+            "description": {},
+            "url": {
+              "path": [
+                "products",
+                "category",
+                ":category"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sort order for results"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "category",
+                  "description": "(Required) Category name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3b37b105-5714-4439-beeb-80f15484a9d0",
+              "name": "Array of products in the category",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "products",
+                    "category",
+                    ":category"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "category",
+                      "description": "(Required) Category name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1866,\n    \"title\": \"string\",\n    \"price\": 2726.458996427172,\n    \"category\": \"string\",\n    \"description\": \"string\",\n    \"image\": \"https://ZxxaCsdEPlFzMRFbYbuOQvU.xgmKGPJVkx6ky5,eUeRRT\",\n    \"rating\": {\n      \"rate\": 2857.2220886356768,\n      \"count\": 8691\n    }\n  },\n  {\n    \"id\": 496,\n    \"title\": \"string\",\n    \"price\": 3640.707261823689,\n    \"category\": \"string\",\n    \"description\": \"string\",\n    \"image\": \"https://HDHDstMQhq.dhw89uHJkYlQgA7KMNwGc5-cZ02kHRp2no6mCfqenJWqbAsRvQNYiPyO+8NP\",\n    \"rating\": {\n      \"rate\": 1595.1626966045508,\n      \"count\": 9136\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://fakestoreapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "0b054140-76fa-40f6-b5c9-762dff35457a",
+    "name": "Fake Store Auth Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Fake Store API exposes a sample REST API for e-commerce data including products, carts, users, and authentication. It is intended for prototyping, teaching, and integration testing — write operations return fabricated responses and do not persist data on the server.\n\nContact Support:\n Name: Fake Store API",
+      "type": "text/plain"
+    }
+  }
+}

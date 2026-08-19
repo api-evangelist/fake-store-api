@@ -1,0 +1,173 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Fake Store Auth Carts API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Carts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List carts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakestoreapi.com/carts",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort order for results"
+              },
+              {
+                "name": "startdate",
+                "value": "",
+                "type": "query",
+                "description": "Start date for filtering carts"
+              },
+              {
+                "name": "enddate",
+                "value": "",
+                "type": "query",
+                "description": "End date for filtering carts"
+              }
+            ]
+          },
+          "docs": "List carts"
+        },
+        {
+          "info": {
+            "name": "Create a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://fakestoreapi.com/carts",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a cart"
+        },
+        {
+          "info": {
+            "name": "Get a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakestoreapi.com/carts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Cart ID"
+              }
+            ]
+          },
+          "docs": "Get a cart"
+        },
+        {
+          "info": {
+            "name": "Replace a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://fakestoreapi.com/carts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Cart ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace a cart"
+        },
+        {
+          "info": {
+            "name": "Partially update a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://fakestoreapi.com/carts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Cart ID"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Partially update a cart"
+        },
+        {
+          "info": {
+            "name": "Delete a cart",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://fakestoreapi.com/carts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Cart ID"
+              }
+            ]
+          },
+          "docs": "Delete a cart"
+        },
+        {
+          "info": {
+            "name": "List carts for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://fakestoreapi.com/carts/user/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "User ID"
+              }
+            ]
+          },
+          "docs": "List carts for a user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
