@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Fake Store Auth Products API
+  title: Fake Store Products API
   description: Fake Store API exposes a sample REST API for e-commerce data including products, carts, users, and authentication. It is intended for prototyping, teaching, and integration testing — write operations return fabricated responses and do not persist data on the server.
   version: 1.0.0
   contact:
@@ -155,7 +155,51 @@ paths:
                 items:
                   $ref: '#/components/schemas/Product'
 components:
+  parameters:
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+      description: Sort order for results
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+      description: Maximum number of results to return
+    ProductId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+      description: Product ID
   schemas:
+    ProductInput:
+      type: object
+      required:
+      - title
+      - price
+      - category
+      - description
+      - image
+      properties:
+        title:
+          type: string
+        price:
+          type: number
+        category:
+          type: string
+        description:
+          type: string
+        image:
+          type: string
+          format: uri
     Product:
       type: object
       properties:
@@ -179,47 +223,3 @@ components:
               type: number
             count:
               type: integer
-    ProductInput:
-      type: object
-      required:
-      - title
-      - price
-      - category
-      - description
-      - image
-      properties:
-        title:
-          type: string
-        price:
-          type: number
-        category:
-          type: string
-        description:
-          type: string
-        image:
-          type: string
-          format: uri
-  parameters:
-    ProductId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-      description: Product ID
-    Sort:
-      in: query
-      name: sort
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-      description: Sort order for results
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 1
-      description: Maximum number of results to return
