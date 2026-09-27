@@ -116,6 +116,13 @@ paths:
                 $ref: '#/components/schemas/User'
 components:
   parameters:
+    UserId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+      description: User ID
     Sort:
       in: query
       name: sort
@@ -125,13 +132,6 @@ components:
         - asc
         - desc
       description: Sort order for results
-    UserId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-      description: User ID
     Limit:
       in: query
       name: limit

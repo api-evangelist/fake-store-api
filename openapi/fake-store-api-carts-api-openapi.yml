@@ -159,13 +159,6 @@ components:
         - asc
         - desc
       description: Sort order for results
-    CartId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-      description: Cart ID
     Limit:
       in: query
       name: limit
@@ -173,6 +166,13 @@ components:
         type: integer
         minimum: 1
       description: Maximum number of results to return
+    CartId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+      description: Cart ID
   schemas:
     CartInput:
       type: object

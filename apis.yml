@@ -55,7 +55,6 @@ apis:
   name: Fake Store API Auth API
   description: Authentication operations.
   humanURL: https://fakestoreapi.com/
-  baseURL: https://fakestoreapi.com
   tags:
   - Authentication
   tags_raw:
@@ -71,7 +70,6 @@ apis:
   name: Fake Store API Carts API
   description: Shopping cart operations.
   humanURL: https://fakestoreapi.com/
-  baseURL: https://fakestoreapi.com
   tags:
   - Cart
   tags_raw:
@@ -87,7 +85,6 @@ apis:
   name: Fake Store API Products API
   description: Product catalog operations.
   humanURL: https://fakestoreapi.com/
-  baseURL: https://fakestoreapi.com
   tags:
   - Product
   tags_raw:
@@ -103,7 +100,6 @@ apis:
   name: Fake Store API Users API
   description: User account operations.
   humanURL: https://fakestoreapi.com/
-  baseURL: https://fakestoreapi.com
   tags:
   - User
   tags_raw:
