@@ -123,6 +123,13 @@ components:
       schema:
         type: integer
       description: User ID
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+      description: Maximum number of results to return
     Sort:
       in: query
       name: sort
@@ -132,19 +139,14 @@ components:
         - asc
         - desc
       description: Sort order for results
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 1
-      description: Maximum number of results to return
   schemas:
-    User:
+    UserInput:
       type: object
+      required:
+      - email
+      - username
+      - password
       properties:
-        id:
-          type: integer
         email:
           type: string
           format: email
@@ -179,13 +181,11 @@ components:
                   type: string
         phone:
           type: string
-    UserInput:
+    User:
       type: object
-      required:
-      - email
-      - username
-      - password
       properties:
+        id:
+          type: integer
         email:
           type: string
           format: email

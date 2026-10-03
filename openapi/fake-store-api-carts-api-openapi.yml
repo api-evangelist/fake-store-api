@@ -149,31 +149,26 @@ paths:
                 items:
                   $ref: '#/components/schemas/Cart'
 components:
-  parameters:
-    Sort:
-      in: query
-      name: sort
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-      description: Sort order for results
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 1
-      description: Maximum number of results to return
-    CartId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-      description: Cart ID
   schemas:
+    Cart:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        date:
+          type: string
+          format: date
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              productId:
+                type: integer
+              quantity:
+                type: integer
     CartInput:
       type: object
       required:
@@ -195,22 +190,27 @@ components:
                 type: integer
               quantity:
                 type: integer
-    Cart:
-      type: object
-      properties:
-        id:
-          type: integer
-        userId:
-          type: integer
-        date:
-          type: string
-          format: date
-        products:
-          type: array
-          items:
-            type: object
-            properties:
-              productId:
-                type: integer
-              quantity:
-                type: integer
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+      description: Maximum number of results to return
+    CartId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+      description: Cart ID
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+      description: Sort order for results
