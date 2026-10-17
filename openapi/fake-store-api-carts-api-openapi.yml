@@ -150,6 +150,13 @@ paths:
                   $ref: '#/components/schemas/Cart'
 components:
   parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+      description: Maximum number of results to return
     CartId:
       in: path
       name: id
@@ -166,21 +173,12 @@ components:
         - asc
         - desc
       description: Sort order for results
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 1
-      description: Maximum number of results to return
   schemas:
-    CartInput:
+    Cart:
       type: object
-      required:
-      - userId
-      - date
-      - products
       properties:
+        id:
+          type: integer
         userId:
           type: integer
         date:
@@ -195,11 +193,13 @@ components:
                 type: integer
               quantity:
                 type: integer
-    Cart:
+    CartInput:
       type: object
+      required:
+      - userId
+      - date
+      - products
       properties:
-        id:
-          type: integer
         userId:
           type: integer
         date:

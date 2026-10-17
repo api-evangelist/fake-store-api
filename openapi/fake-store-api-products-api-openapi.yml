@@ -155,30 +155,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/Product'
 components:
-  parameters:
-    Sort:
-      in: query
-      name: sort
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-      description: Sort order for results
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 1
-      description: Maximum number of results to return
-    ProductId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-      description: Product ID
   schemas:
     Product:
       type: object
@@ -223,3 +199,27 @@ components:
         image:
           type: string
           format: uri
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        minimum: 1
+      description: Maximum number of results to return
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: string
+        enum:
+        - asc
+        - desc
+      description: Sort order for results
+    ProductId:
+      in: path
+      name: id
+      required: true
+      schema:
+        type: integer
+      description: Product ID
