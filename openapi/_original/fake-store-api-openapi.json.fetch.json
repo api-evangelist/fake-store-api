@@ -1,0 +1,12 @@
+{
+ "url": "https://fakestoreapi.com/docs-data",
+ "final": "https://fakestoreapi.com/docs-data",
+ "status": 200,
+ "content_type": "application/json; charset=utf-8",
+ "bytes": 25209,
+ "sha256": "c75e914af72f1db3626ce36e16bf41c3c053183ff7188b2cbbe926bf733b69c5",
+ "fetched_at": "2026-10-19",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "re-archived: the provider's current document replaced a stale archive (roadmap#793); the old files are in openapi/_superseded/2026-10-19-stale"
+}

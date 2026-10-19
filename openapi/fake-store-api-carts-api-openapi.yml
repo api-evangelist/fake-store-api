@@ -1,178 +1,230 @@
 openapi: 3.2.0
 info:
-  title: Fake Store Carts API
-  description: Fake Store API exposes a sample REST API for e-commerce data including products, carts, users, and authentication. It is intended for prototyping, teaching, and integration testing — write operations return fabricated responses and do not persist data on the server.
-  version: 1.0.0
+  title: FakeStore Carts API
+  description: A free fake API for testing and prototyping e-commerce applications.
+  version: old-version-production
   contact:
-    name: Fake Store API
-    url: https://fakestoreapi.com/
-  license:
-    name: MIT
+    email: support@fakestoreapi.com
+    url: https://fakestoreapi.com/docs
+  x-logo:
+    url: /icons/logo.png
+    href: /
 servers:
 - url: https://fakestoreapi.com
-  description: Production
 tags:
 - name: Carts
-  description: Shopping cart operations.
+  x-displayName: 🛍️ Carts
 paths:
   /carts:
     get:
+      summary: Get all carts
+      description: Retrieve a list of all available carts.
+      operationId: getAllCarts
       tags:
       - Carts
-      summary: List carts
-      operationId: listCarts
-      parameters:
-      - $ref: '#/components/parameters/Limit'
-      - $ref: '#/components/parameters/Sort'
-      - in: query
-        name: startdate
-        schema:
-          type: string
-          format: date
-        description: Start date for filtering carts
-      - in: query
-        name: enddate
-        schema:
-          type: string
-          format: date
-        description: End date for filtering carts
+      x-code-samples:
+      - lang: javascript
+        label: JavaScript (Browser)
+        source: "fetch('https://fakestoreapi.com/carts')\n  .then(response => response.json())\n  .then(data => console.log(data));"
+      - lang: nodejs
+        label: Node.js (Axios)
+        source: "const axios = require('axios');\naxios.get('https://fakestoreapi.com/carts')\n  .then(response => console.log(response.data));"
+      - lang: php
+        label: PHP
+        source: "<?php\n  $response = file_get_contents('https://fakestoreapi.com/carts');\n  echo $response;\n?>"
+      - lang: curl
+        label: cURL
+        source: curl -X GET 'https://fakestoreapi.com/carts'
+      - lang: python
+        label: Python
+        source: 'import requests
+
+          response = requests.get(''https://fakestoreapi.com/carts'')
+
+          print(response.json())'
       responses:
         '200':
-          description: Array of carts
+          description: Success
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Cart'
+        '400':
+          description: Bad request
     post:
+      summary: Add a new cart
+      description: Create a new cart.
+      operationId: addCart
       tags:
       - Carts
-      summary: Create a cart
-      operationId: createCart
+      x-code-samples:
+      - lang: javascript
+        label: JavaScript (Browser)
+        source: "const cart = { userId: 1, products: [{ id: 1 }] };\nfetch('https://fakestoreapi.com/carts', {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify(cart)\n})\n  .then(response => response.json())\n  .then(data => console.log(data));"
+      - lang: nodejs
+        label: Node.js (Axios)
+        source: "const axios = require('axios');\nconst cart = { userId: 1, products: [{ id: 1 }] };\naxios.post('https://fakestoreapi.com/carts', cart)\n  .then(response => console.log(response.data));"
+      - lang: php
+        label: PHP
+        source: "<?php\n  $cart = json_encode(['userId' => 1, 'products' => [['id' => 1]]]);\n  $ch = curl_init('https://fakestoreapi.com/carts');\n  curl_setopt($ch, CURLOPT_POST, 1);\n  curl_setopt($ch, CURLOPT_POSTFIELDS, $cart);\n  curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);\n  $response = curl_exec($ch);\n  curl_close($ch);\n  echo $response;\n?>"
+      - lang: curl
+        label: cURL
+        source: 'curl -X POST ''https://fakestoreapi.com/carts'' -H ''Content-Type: application/json'' -d ''{"userId": 1, "products": [{"id": 1}]}'''
+      - lang: python
+        label: Python
+        source: 'import requests
+
+          cart = {''userId'': 1, ''products'': [{''id'': 1}]}
+
+          response = requests.post(''https://fakestoreapi.com/carts'', json=cart)
+
+          print(response.json())'
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CartInput'
+              $ref: '#/components/schemas/Cart'
       responses:
-        '200':
-          description: Created cart (fabricated)
+        '201':
+          description: Cart created successfully
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Cart'
+        '400':
+          description: Bad request
   /carts/{id}:
-    parameters:
-    - $ref: '#/components/parameters/CartId'
     get:
+      summary: Get a single cart
+      description: Retrieve details of a specific cart by ID.
+      operationId: getCartById
       tags:
       - Carts
-      summary: Get a cart
-      operationId: getCart
+      x-code-samples:
+      - lang: javascript
+        label: JavaScript (Browser)
+        source: "fetch('https://fakestoreapi.com/carts/1')\n  .then(response => response.json())\n  .then(data => console.log(data));"
+      - lang: nodejs
+        label: Node.js (Axios)
+        source: "const axios = require('axios');\naxios.get('https://fakestoreapi.com/carts/1')\n  .then(response => console.log(response.data));"
+      - lang: php
+        label: PHP
+        source: "<?php\n  $response = file_get_contents('https://fakestoreapi.com/carts/1');\n  echo $response;\n?>"
+      - lang: curl
+        label: cURL
+        source: curl -X GET 'https://fakestoreapi.com/carts/1'
+      - lang: python
+        label: Python
+        source: 'import requests
+
+          response = requests.get(''https://fakestoreapi.com/carts/1'')
+
+          print(response.json())'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
-          description: Cart
+          description: Success
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Cart'
+        '400':
+          description: Bad request
     put:
-      tags:
-      - Carts
-      summary: Replace a cart
-      operationId: replaceCart
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CartInput'
-      responses:
-        '200':
-          description: Updated cart (fabricated)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Cart'
-    patch:
-      tags:
-      - Carts
-      summary: Partially update a cart
+      summary: Update a cart
+      description: Update an existing cart by ID.
       operationId: updateCart
+      tags:
+      - Carts
+      x-code-samples:
+      - lang: javascript
+        label: JavaScript (Browser)
+        source: "const cart = { userId: 1, products: [{ id: 2 }] };\nfetch('https://fakestoreapi.com/carts/1', {\n  method: 'PUT',\n  headers: { 'Content-Type': 'application/json' },\n  body: JSON.stringify(cart)\n})\n  .then(response => response.json())\n  .then(data => console.log(data));"
+      - lang: nodejs
+        label: Node.js (Axios)
+        source: "const axios = require('axios');\nconst cart = { userId: 1, products: [{ id: 2 }] };\naxios.put('https://fakestoreapi.com/carts/1', cart)\n  .then(response => console.log(response.data));"
+      - lang: php
+        label: PHP
+        source: "<?php\n  $cart = json_encode(['userId' => 1, 'products' => [['id' => 2]]]);\n  $ch = curl_init('https://fakestoreapi.com/carts/1');\n  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');\n  curl_setopt($ch, CURLOPT_POSTFIELDS, $cart);\n  curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);\n  $response = curl_exec($ch);\n  curl_close($ch);\n  echo $response;\n?>"
+      - lang: curl
+        label: cURL
+        source: 'curl -X PUT ''https://fakestoreapi.com/carts/1'' -H ''Content-Type: application/json'' -d ''{"userId": 1, "products": [{"id": 2}]}'''
+      - lang: python
+        label: Python
+        source: 'import requests
+
+          cart = {''userId'': 1, ''products'': [{''id'': 2}]}
+
+          response = requests.put(''https://fakestoreapi.com/carts/1'', json=cart)
+
+          print(response.json())'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CartInput'
+              $ref: '#/components/schemas/Cart'
       responses:
         '200':
-          description: Updated cart (fabricated)
+          description: Cart updated successfully
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Cart'
+        '400':
+          description: Bad request
     delete:
-      tags:
-      - Carts
       summary: Delete a cart
+      description: Delete a specific cart by ID.
       operationId: deleteCart
-      responses:
-        '200':
-          description: Deleted cart (fabricated)
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Cart'
-  /carts/user/{userId}:
-    parameters:
-    - in: path
-      name: userId
-      required: true
-      schema:
-        type: integer
-      description: User ID
-    get:
       tags:
       - Carts
-      summary: List carts for a user
-      operationId: listCartsByUser
+      x-code-samples:
+      - lang: javascript
+        label: JavaScript (Browser)
+        source: "fetch('https://fakestoreapi.com/carts/1', {\n  method: 'DELETE'\n})\n  .then(response => response.json())\n  .then(data => console.log(data));"
+      - lang: nodejs
+        label: Node.js (Axios)
+        source: "const axios = require('axios');\naxios.delete('https://fakestoreapi.com/carts/1')\n  .then(response => console.log(response.data));"
+      - lang: php
+        label: PHP
+        source: "<?php\n  $ch = curl_init('https://fakestoreapi.com/carts/1');\n  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');\n  $response = curl_exec($ch);\n  curl_close($ch);\n  echo $response;\n?>"
+      - lang: curl
+        label: cURL
+        source: curl -X DELETE 'https://fakestoreapi.com/carts/1'
+      - lang: python
+        label: Python
+        source: 'import requests
+
+          response = requests.delete(''https://fakestoreapi.com/carts/1'')
+
+          print(response.json())'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
       responses:
         '200':
-          description: Array of carts for the user
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Cart'
+          description: Cart deleted successfully
+        '400':
+          description: Bad request
 components:
-  parameters:
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        minimum: 1
-      description: Maximum number of results to return
-    CartId:
-      in: path
-      name: id
-      required: true
-      schema:
-        type: integer
-      description: Cart ID
-    Sort:
-      in: query
-      name: sort
-      schema:
-        type: string
-        enum:
-        - asc
-        - desc
-      description: Sort order for results
   schemas:
     Cart:
       type: object
@@ -181,36 +233,24 @@ components:
           type: integer
         userId:
           type: integer
-        date:
-          type: string
-          format: date
         products:
           type: array
           items:
-            type: object
-            properties:
-              productId:
-                type: integer
-              quantity:
-                type: integer
-    CartInput:
+            $ref: '#/components/schemas/Product'
+    Product:
       type: object
-      required:
-      - userId
-      - date
-      - products
       properties:
-        userId:
+        id:
           type: integer
-        date:
+        title:
           type: string
-          format: date
-        products:
-          type: array
-          items:
-            type: object
-            properties:
-              productId:
-                type: integer
-              quantity:
-                type: integer
+        price:
+          type: number
+          format: float
+        description:
+          type: string
+        category:
+          type: string
+        image:
+          type: string
+          format: uri
