@@ -237,3 +237,9 @@ components:
           type: string
         password:
           type: string
+x-provenance:
+  method: harvested
+  publisher: Fake Store API
+  source: https://fakestoreapi.com/docs-data
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
