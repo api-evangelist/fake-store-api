@@ -1,4 +1,4 @@
-# Fake Store API (fake-store-api)
+# Fake Store API
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,60 +66,119 @@
 
 Fake Store API is a tool that allows users to access a database of fake products, customers, and orders. Users can use the API to generate test data for their e-commerce applications or to practice integrating with external APIs. The Fake Store API provides a simple and easy-to-use interface for retrieving information such as product details, customer information, and order history.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/fake-store-api/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/fake-store-api/refs/heads/main/apis.yml)
+**Areas:** Customers · Fake Data · Order · Product · Synthetic Data
 
-## Scope
+## Fake Store API on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for Fake Store API is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/fake-store-api/](https://apis.io/providers/fake-store-api/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (4)
 
-- Customers
-- Fake Data
-- Orders
-- Products
-- Synthetic Data
+- [Fake Store API Auth API](https://apis.io/apis/fake-store-api/fake-store-api-auth-api/) — Authentication operations.
+- [Fake Store API Carts API](https://apis.io/apis/fake-store-api/fake-store-api-carts-api/) — Shopping cart operations.
+- [Fake Store API Products API](https://apis.io/apis/fake-store-api/fake-store-api-products-api/) — Product catalog operations.
+- [Fake Store API Users API](https://apis.io/apis/fake-store-api/fake-store-api-users-api/) — User account operations.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-24
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Fake Store API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Public REST API for prototyping and teaching e-commerce integrations. Exposes products, carts, users, and authentication endpoints. Write operations return fabricated responses without persisting data on the server, making it safe for demos and integration testing.
+- [Fake Store Api Agentic Access](https://apis.io/agentic-access/fake-store-api/fake-store-api-agentic-access/)
 
-- **Human URL:** [https://fakestoreapi.com/](https://fakestoreapi.com/)
-- **Base URL:** `https://fakestoreapi.com`
+#### Collections (5)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Customers
-- Fake Data
-- Orders
-- Products
-- Synthetic Data
+- [Fake Store API](https://apis.io/collections/fake-store-api/open-fake-store-api/)
+- [Fake Store Auth API](https://apis.io/collections/fake-store-api/open-fake-store-api-auth-api/)
+- [Fake Store Auth Carts API](https://apis.io/collections/fake-store-api/open-fake-store-api-carts-api/)
+- [Fake Store Auth Products API](https://apis.io/collections/fake-store-api/open-fake-store-api-products-api/)
+- [Fake Store Auth Users API](https://apis.io/collections/fake-store-api/open-fake-store-api-users-api/)
 
-#### Properties
+#### Security (1)
 
-- [Documentation](https://fakestoreapi.com/docs)
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Fake Store Api Domain Security](https://apis.io/security/fake-store-api/fake-store-api-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Fake Store Api Plans Pricing](https://apis.io/plans/fake-store-api/fake-store-api-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Fake Store Api Rate Limits](https://apis.io/rate-limits/fake-store-api/fake-store-api-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Fake Store Api Finops](https://apis.io/finops/fake-store-api/fake-store-api-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://fakestoreapi.com/)
-- [OpenAPI](openapi/fake-store-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/fake-store-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/fake-store-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/fake-store-api)
-- [Website](https://fakestoreapi.com/)
 - [Documentation](https://fakestoreapi.com/docs)
-- [GitHub Repository](https://github.com/keikaavousi/fake-store-api)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 20.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 44.7 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 7.9 |
+
+**Agent readiness 15.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 5.9** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/fake-store-api/](https://apis.io/providers/fake-store-api/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Fake Store API: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/fake-store-api/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
